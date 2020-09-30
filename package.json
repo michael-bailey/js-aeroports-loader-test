@@ -1,0 +1,18 @@
+{
+  "name": "aeroport-sqlite",
+  "version": "1.0.0",
+  "description": "sqlite usage with sqlite",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage=true",
+    "test-watch": "jest --watchAll"
+  },
+  "author": "michael",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "sqlite3": "^5.0.0"
+  }
+}
