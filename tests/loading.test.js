@@ -7,7 +7,7 @@ jest.setTimeout(30000);
 describe("load tests", () => {
     test("test load function", (done) => {
 
-        db = new Database("test.db")
+        db = new Database(":memory:")
         load(db, aeroports, "Aeroports", (db) => {
 
             // perform tests
@@ -16,10 +16,9 @@ describe("load tests", () => {
 
 
                 expect(rows.length).toBe(3)
-                expect(rows[0]).toBe("Anchor Point")
+                expect(rows[0].city).toBe("Anchor Point")
+                done()
             })
-
-            done()
         })
     })
 })
