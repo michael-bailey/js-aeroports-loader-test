@@ -28,7 +28,9 @@ function insert(database, items, tableName, callback) {
         
     })
 
-    database.all(`INSERT INTO ${tableName}(${keys}) VALUES (${values}) `, function(err) {
+    let query = `INSERT INTO ${tableName}(${keys}) VALUES (${values})`
+
+    database.all(query, function(err) {
         if (err != undefined) return console.log(err);
         insert(database, items.slice(1), tableName, callback)
     })

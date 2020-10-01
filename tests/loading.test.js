@@ -8,7 +8,17 @@ describe("load tests", () => {
     test("test load function", (done) => {
 
         db = new Database("test.db")
-        load(db, aeroports, "Aeroports", (err) => {
+        load(db, aeroports, "Aeroports", (db) => {
+
+            // perform tests
+            db.all("Select city from Aeroports LIMIT 3", (err, rows) => {
+                console.log("error is ", err);
+
+
+                expect(rows.length).toBe(3)
+                expect(rows[0]).toBe("Anchor Point")
+            })
+
             done()
         })
     })
